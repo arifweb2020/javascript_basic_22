@@ -79,6 +79,47 @@ let ddcs = mnbs.includes("roshan")
 document.write(ddcs + "<br>")
 
 
+// find(function name) - it check index of the first value  and findIndex(function name) return index of the first element
+
+let numb = [10,23,34,54]
+let age = numb.find(checkNumb)
+
+document.write(age + "<br>")
+
+function checkNumb(x){
+return x >= 18
+}
+
+
+// filter(function name) - it check everytime  and return new array
+
+let numb1 = [10,23,34,54]
+let age1 = numb.filter(checkNumb1)
+
+document.write(age1 + "<br>")
+
+function checkNumb1(x){
+return x >= 18
+}
+
+
+// forEach(function name) 
+
+let numb2 = [10,23,34,54]
+
+numb2.forEach(function(val){
+document.write("value is" + val + "<br>")
+})
+
+// other way value -> is varaible
+/*
+numb2.forEach(test)
+
+function test(value){
+document.write("value is" + val + "<br>")
+}
+*/
+
 </script>
 
 
