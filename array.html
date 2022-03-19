@@ -1,0 +1,88 @@
+<html>
+
+<title>Array in JS</title>
+
+<body>
+
+<script>
+// array sort - it short alphabatically
+
+let x = ["roshan","mona","anshu","ziraan","mkraan"]
+x.sort()
+document.write(x + "<br>")
+// array reverse - it reverse
+x.reverse()
+document.write(x + "<br>")
+
+
+// pop() - it delete last value of array
+let n = ["roshan","mona","anshu","ziraan","mkraan"]
+n.pop()
+document.write(n + "<br>")
+
+// push() - it add last value of array
+let m = ["roshan","mona","anshu","ziraan","mkraan"]
+m.push("cena")
+document.write(m + "<br>")
+
+
+// shift() - it delete first value of array
+let nn = ["roshan","mona","anshu","ziraan","mkraan"]
+nn.shift()
+document.write(nn + "<br>")
+
+// unshift() - it add first value of array
+let mm = ["roshan","mona","anshu","ziraan","mkraan"]
+mm.unshift("cena")
+document.write(mm + "<br>")
+
+
+// conact() - it add two array values in single array
+let l = ["roshan","mona","anshu","ziraan","mkraan"]
+let s = ["mela","lela"]
+let mmm = l.concat(s)
+document.write(mmm + "<br>")
+
+// join() - to make one value of array as string
+let ll = ["roshan","mona","anshu"]
+let lll = ll.join("-")
+document.write(lll + "<br>")
+
+// slice() - to find with index value 
+let sl = ["roshan","mona","anshu","ziraan","mkraan"]
+let slm = ll.slice(1,4) // result -> "mona","anshu","ziraan","mkraan" if slice(1,4) result -> "mona","anshu","ziraan"  // slice(-2) result -> "ziraan","mkraan"
+document.write(slm + "<br>")
+
+// splice() - to find new value in between an array
+var sullu = ["roshan","mona","anshu","ziraan","mkraan"]
+ sullu.splice(2,0,"arif","wd") // spilce(2,0,"arif") -> 2 means anshu se phale aad karna , 0 -> delete nahi karna hai koi item
+//  sullu.splice(2,1,"arif","wd") -. it means it delete anshu
+
+// sullu.splice(2,2) -> last 2 delte the value
+
+document.write(sullu + "<br>")
+
+
+// for array checked - it return true or false
+
+let mnb = ["roshan","mona","anshu","ziraan","mkraan"]
+
+let ddc = Array.isArray(mnb)
+document.write(ddc + "<br>")
+
+
+// for includes() - it return true or false
+
+let mnbs = ["roshan","mona","anshu","ziraan","mkraan"]
+
+let ddcs = mnbs.includes("roshan")
+document.write(ddcs + "<br>")
+
+
+</script>
+
+
+</body>
+
+
+</html>

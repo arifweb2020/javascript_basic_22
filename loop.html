@@ -1,0 +1,69 @@
+<html>
+<title>LOOP in JS</title>
+<body>
+
+
+<script>
+
+// while
+
+let x = 1;
+while(x <= 10){
+document.write("Hii while loop <br>")
+x = x+1;
+}
+
+
+// dowhile
+
+let a = 1;
+do{
+document.write("do while loop <br>")
+a = a+1;
+}
+while(a <=10)
+
+
+// for loop
+
+for(var i=0 ; i<=10 ; i++){
+document.write("for loop <br>")
+}
+
+
+// for loop with continue
+
+for(var m=0 ; m<=10 ; m++){
+
+if (m === 3){
+document.write("for loop with continue <br>")
+continue
+}
+
+// for break 
+/*
+if (m === 3){
+document.write("for loop with continue <br>")
+break;
+
+output will show upto 3 only
+} */
+document.write("for loop with condition <br>")
+}
+
+
+// array sum
+
+let sums = [12,23,87,90];
+
+let total = 0
+for (let ns = 0;  ns <= 3 ; ns++){
+document.write(sums[ns])
+total = total + sums[ns]
+}
+
+document.write("total sum" + total)
+
+</script>
+</body>
+</html>
