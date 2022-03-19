@@ -1,0 +1,155 @@
+<html>
+
+<body>
+<h1>JAVASCRIPT STRING METHOD</h1>
+<script>
+
+// length 
+
+let str = "welcome to the possible"
+let a = str.length
+document.write(a)
+
+// toUpperCase()  , toLowercase()
+
+let str1 = "welcome to the possible"
+let a1 = str1.toUpperCase()
+document.write(a1)
+
+// includes() -> used for search words (and return true or false) and it is case sensitive
+
+let str2 = "welcome to the possible"
+let a2 = str2.includes("welcome")
+document.write(a2)
+
+
+// startsWith() -> used for search words which is coming first (and return true or false) and it is case sensitive
+
+let str3 = "welcome to the possible"
+let a3 = str3.startsWith("welcome")
+document.write(a3)
+
+
+// endsWith() -> used for search words which is coming first (and return true or false) and it is case sensitive
+
+let str4 = "welcome to the possible"
+let a4 = str4.endsWith("possible")
+document.write(a4)
+
+// search() -> used similar like includes() but it (return poistion of index form first character) and it is not matching any charcter then it returns -1.
+
+let str5 = "welcome to the possible"
+let a5 = str5.search("possible")
+document.write(a5)
+
+
+// match() -> used similar like search() but it alwyas check similar charcter (and make array for them) and it is not matching any charcter then it returns -1.
+
+let str6 = "welcome to the possible the"
+let a6 = str6.match(/the/g)
+document.write(a6)
+
+
+// indexOf() -> used similar like search() but it check first similar words and stop and give it index number.
+
+let str7 = "welcome to the possible to"
+let a7 = str7.indexOf("to")
+document.write(a7)
+
+
+// lastIndexOf() -> used similar like search() but it check last similar words and stop and give it index number.
+
+let str8 = "welcome to the possible to"
+let a8 = str8.lastIndexOf("to")
+document.write(a8)
+
+// replace() -> it replace the words
+
+let str9 = "welcome to the possible to"
+let a9 = str9.replace("welcome","Hii")
+// for mutiple word replace let a9 = str9.replace(/to/g,"are")
+document.write(a9)
+
+
+// trim() -> it remove the space around text
+
+let str10 = "           welcome to the possible to"
+let a10 = str10.trim()
+// for mutiple word replace let a9 = str9.replace(/to/g,"are")
+document.write(a10)
+
+// charAt() -> it return index of the charcter 
+
+let str11 = "welcome to the possible to"
+let a11 = str11.charAt(5)
+
+document.write(a11)
+
+// charCodeAt() -> it return index of the charcter with sky code 
+
+let str12 = "welcome to the possible to"
+let a12 = str12.charCodeAt(5)
+
+document.write(a12)
+
+// concat() -> it merges more than one string
+
+let str13 = "welcome to the possible to"
+let ar ="java"
+let am ="PHP"
+let a13 = str13.concat(ar,am)
+
+document.write(a13)
+
+// split() -> it break string into an array
+
+let str14 = "welcome to the possible to"
+
+let a14 = str13.split(" ")
+
+// if u split form l let a14 = str13.split("l")
+
+document.write(a14)
+
+
+// repeat() -> it repeat string 
+
+let str15 = "welcome to the possible to"
+
+let a15 = str15.repeat(4)
+
+// if u split form l let a14 = str13.split("l")
+
+document.write(a15)
+
+
+// slice(startwith,endwith) -> it return string  and substr() is almost similar
+
+let str16 = "welcome to the possible to"
+// give last two charcter (to) let a16 = str16.repeat(-2)
+let a16 = str16.repeat(1,9)
+
+
+document.write(a16)
+
+
+// substring(startwith,endwith) -> it return string 
+
+let str17 = "welcome to the possible to"
+
+let a17 = str16.repeat(1,9) // it will not count 9 number character
+
+document.write(a17)
+
+
+// toString()  convert into string
+
+let str18 = 50
+
+let a18 = str18.toString() // it will not count 9 number character
+
+document.write(a18 + 20)
+
+</script>
+</body>
+</html>
