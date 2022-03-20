@@ -1,0 +1,52 @@
+<html>
+<title>Object in JS</title>
+<body>
+
+
+<script>
+
+let x = new Object()
+
+x.fName="arif";
+x.lName="hussain"
+
+document.write(x.fName + "<br>")
+
+
+// 
+
+let y = [
+{name:"arif" , school:"DCS"},
+{name:"hussain" , school:"SVM"},
+{name:"haifa" , school:"SSD"},
+]
+console.log(y)
+
+/*
+for (var a=0 ; a < y.length ; a++)
+{
+document.write(y[a].name + "<br>")
+}
+*/
+
+y.map(val=>{
+    return document.write(val.name + "<br>")
+})
+
+
+// for in 
+
+let d = {
+name:"arif" , 
+school:"DCS"
+}
+
+for(var key in d){
+document.write(d[key] + "<br>")
+}
+
+
+
+</script>
+</body>
+</html>

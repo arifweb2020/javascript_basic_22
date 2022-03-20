@@ -1,0 +1,63 @@
+<html>
+<title>Object in JS</title>
+<body>
+
+
+<script>
+
+// convert string into Number()
+
+let x = "90"
+let y = Number(x)
+
+document.write(y + 10 + "<br>")
+
+// parseInt
+
+let x1 = "90 888"
+let y1 = parseInt(x1)
+
+document.write(y1 + 10 + "<br>")  // output - 100
+
+
+let x2 = "90.888"
+let y2 = parseInt(x2)
+
+document.write(y2 + 10 + "<br>")  // output - 100
+
+
+let x3 = "50 year"
+let y3 = parseInt(x3)
+
+document.write(y3 + "<br>") // output - 50
+
+// parseFloat
+
+let x4 = "90.888"
+let y4 = parseFloat(x4)
+ 
+document.write(y4 + "<br>")  // output - 90.888
+
+
+let x5 = "97 year"
+let y5 = parseFloat(x5)
+ 
+document.write(y5 + "<br>")  // output - 90
+
+let x6 = "90.50 year"
+let y6 = parseFloat(x6)
+ 
+document.write(y6 + "<br>")  // output - 90.5
+
+
+// toFixed()
+
+let x7 = 90.5067
+let y7 = x7.toFixed(3)
+ 
+document.write(y7 + "<br>")  // output - 90.506
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<html>
+<title>Object in JS</title>
+<body>
+
+
+<script>
+
+// date
+
+var a = new Date();
+document.write(a + "<br>")  // output -> Sun Mar 20 2022 16:13:11 GMT+0530 (India Standard Time)
+
+
+// toDateString()
+var b = new Date();
+document.write(b.toDateString() + "<br>")  // output -> Sun Mar 20 2022
+
+
+// getDate()
+var c = new Date();
+document.write(c.getDate() + "<br>")  // output -> 20
+
+
+// getMonth()
+var d = new Date();
+document.write(d.getMonth() + "<br>")  // output -> 3
+
+// getFullYear()
+var e = new Date();
+document.write(e.getFullYear() + "<br>")  // output -> 2022
+
+
+// getDay()
+var f = new Date();
+document.write(f.getDay() + "<br>")  // output -> 0 means sunday
+
+
+// getHours()
+var g = new Date('March 20 2022');
+document.write(g.getHours() + "<br>")  // output -> 0 
+
+
+
+// setDate()
+var g1 = new Date();
+g1.setDate(19)
+document.write(g1 + "<br>")  // output -> Sat Mar 19 2022 16:25:21 GMT+0530 (India Standard Time) 
+
+
+// setMonth()
+var g12 = new Date();
+g12.setMonth(3)
+document.write(g12 + "<br>")  // output -> Wed Apr 20 2022 16:27:41 GMT+0530 (India Standard Time)
+
+
+ // setFullYear()
+var g13 = new Date();
+g13.setFullYear(2022)
+document.write(g13 + "<br>")  // output -> Sun Mar 20 2022 16:29:31 GMT+0530 (India Standard Time)
+
+</script>
+</body>
+</html>
