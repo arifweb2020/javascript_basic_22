@@ -121,6 +121,17 @@ document.write("value is" + val + "<br>")
 }
 */
 
+// remove duplicate value
+let a23 = [10,20,30,10,50,20,80,25]
+
+let x = a23.filter(function (value, index) { 
+    return a23.indexOf(value) !== index ;
+});
+
+// let x = a23.filter((value,i)=> a23.indexOf(value) === index)
+
+document.write(x)
+
 </script>
 
 
