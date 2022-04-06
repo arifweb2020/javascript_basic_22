@@ -231,4 +231,81 @@ Example : unit test case for useLocation
      });
  
  });
+ 
+ 
+ 
+Example : components with useParams
+
+/**
+ * unit test case
+ */
+
+ import React from "react";
+ import Adapter from 'enzyme-adapter-react-16';
+ import Enzyme from 'enzyme';
+ import toJSON from 'enzyme-to-json';
+ import store from './../../../../reducers/store/Store'
+ import { render } from '@testing-library/react';
+ import { Provider } from "react-redux";
+import ApprovalDetailsPage from './../ApprovalDetails';
+
+
+ Enzyme.configure({ adapter: new Adapter() });
+
+ jest.mock('react-router-dom', () => ({
+    ...jest.requireActual('react-router-dom'),
+    useParams: () => ({
+        product: 'BIL',
+        startDate: '2021-11-01',
+        endDate:'2021-11-30',
+        masterId:'312',
+        transactId:317
+
+    }),
+  }));
+
+ 
+ describe('Approval Details Page', () => {
+     it('renders component without crashing', () => {
+        
+         const wrapper = render(
+             <Provider store={store}>
+                 <ApprovalDetailsPage />
+             </Provider>
+         );
+         expect(toJSON(wrapper)).toMatchSnapshot();
+     });
+ 
+ });
+
+Example : components with props & history
+
+const { window, history } = props;
+
+
+
+/**
+ * Unit test cases for Business user App Layout Component
+ *
+ */
+ import React from "react";
+ import { shallow } from 'enzyme';
+ import Adapter from 'enzyme-adapter-react-16';
+ import Enzyme from 'enzyme';
+ import toJSON from 'enzyme-to-json';
+//  import { render } from '@testing-library/react';
+// import { Provider } from "react-redux";
+import AppLayout from './../AppLayout';
+
+Enzyme.configure({ adapter: new Adapter() });
+
+  describe('Business user App Layout', () => {
+    it('renders component without crashing', () => {
+      const window= jest.fn();
+      const wrapper = shallow(<AppLayout window={window} history={{}}/>);
+      expect(toJSON(wrapper)).toMatchSnapshot();
+    });
+    
+   }); 
+ 
 
