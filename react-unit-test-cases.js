@@ -309,3 +309,42 @@ Enzyme.configure({ adapter: new Adapter() });
    }); 
  
 
+Example : useParams and useLocation together
+
+/**
+ * unit test case
+ */
+
+ import React from "react";
+ import Adapter from 'enzyme-adapter-react-16';
+ import Enzyme from 'enzyme';
+ import toJSON from 'enzyme-to-json';
+ import store from './../../../../reducers/store/Store'
+ import { render } from '@testing-library/react';
+ import { Provider } from "react-redux";
+ import ReportPage from './../Reports';
+
+ Enzyme.configure({ adapter: new Adapter() });
+
+ jest.mock('react-router-dom', () => ({
+    ...jest.requireActual('react-router-dom'),
+    useParams: () => ({
+        page: 0,
+        size: 10,
+    }),
+    useLocation: () => ({
+        pathname: "Report"
+      }),
+  }));
+ 
+ describe('Approval Page', () => {
+     it('renders component without crashing', () => {
+         const wrapper = render(
+             <Provider store={store}>
+                 <ReportPage />
+             </Provider>
+         );
+         expect(toJSON(wrapper)).toMatchSnapshot();
+     });
+ 
+ });
