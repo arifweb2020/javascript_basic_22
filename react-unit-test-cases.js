@@ -190,3 +190,45 @@ Example : components with Redux
   });   
 
 
+Example : unit test case for useLocation
+
+/**
+ * unit test case
+ */
+
+ import React from "react";
+ import Adapter from 'enzyme-adapter-react-16';
+ import Enzyme from 'enzyme';
+ import toJSON from 'enzyme-to-json';
+ import store from './../../../../reducers/store/Store'
+ import { render } from '@testing-library/react';
+ import { Provider } from "react-redux";
+ import Approval from './../Approval';
+
+
+ 
+ 
+ Enzyme.configure({ adapter: new Adapter() });
+
+ jest.mock("react-router-dom", () => ({
+    ...jest.requireActual("react-router-dom"),
+    useLocation: () => ({
+      pathname: "Approval"
+    }),
+    useHistory: () => ({
+      push: jest.fn()
+    })
+  }));
+ 
+ describe('Approval Page', () => {
+     it('renders component without crashing', () => {
+         const wrapper = render(
+             <Provider store={store}>
+                 <Approval />
+             </Provider>
+         );
+         expect(toJSON(wrapper)).toMatchSnapshot();
+     });
+ 
+ });
+
