@@ -1,10 +1,14 @@
+https://betterprogramming.pub/how-to-achieve-100-test-coverage-for-react-functional-components-fbde1e40631c
+
+https://medium.com/swlh/react-testing-using-jest-along-with-code-coverage-report-7454b5ba0236
+
 1> npm install enzyme enzyme-adapter-react-16 enzyme-to-json
 
 --watchAll=false
 
 2> run single file : npm test App.spec.js
 
-3> npm run test -- --coverage
+3> npm run test -- --coverage or npm run test -- --coverage --watchAll=false
 
 Example : Normal Component
 
@@ -348,3 +352,42 @@ Example : useParams and useLocation together
      });
  
  });
+
+// 17 verison adapater
+
+/**
+ * Unit test cases for DSA user App Layout Component
+ *
+ */
+ import React from "react";
+ import { shallow , mount } from 'enzyme';
+ import Adapter from 'enzyme-adapter-react-17-updated';
+ import Enzyme from 'enzyme';
+ import toJSON from 'enzyme-to-json';
+//  import { render } from '@testing-library/react';
+// import { Provider } from "react-redux";
+import AppLayout from './../AppLayoutDsa';
+import { MemoryRouter } from "react-router-dom";
+import store from './../../reducers/store/Store';
+import { Provider } from 'react-redux';
+
+Enzyme.configure({ adapter: new Adapter() });
+
+  describe('DSA user App Layout', () => {
+    it('renders component without crashing', () => {
+      const window= jest.fn();
+      const wrapper = shallow(<AppLayout window={window} history={{}}/>);
+      expect(toJSON(wrapper)).toMatchSnapshot();
+    });
+    
+   });
+
+   describe('renders <AppLayout />', () => {
+    it('should pass mount snapshot test', () => {
+
+      const wrapper = mount(<Provider store={store}>
+        <MemoryRouter><AppLayout/></MemoryRouter>
+                     </Provider>);
+      expect(wrapper).toMatchSnapshot();
+    });
+  });
