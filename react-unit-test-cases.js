@@ -6,6 +6,8 @@ https://www.testim.io/blog/sonarqube-javascript/
 
 https://rangle.io/blog/component-test-coverage/
 
+https://medium.com/swlh/react-testing-using-jest-along-with-code-coverage-report-7454b5ba0236
+
 1> npm install enzyme enzyme-adapter-react-16 enzyme-to-json
 
 --watchAll=false
