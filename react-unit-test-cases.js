@@ -2,6 +2,10 @@ https://betterprogramming.pub/how-to-achieve-100-test-coverage-for-react-functio
 
 https://medium.com/swlh/react-testing-using-jest-along-with-code-coverage-report-7454b5ba0236
 
+https://www.testim.io/blog/sonarqube-javascript/
+
+https://rangle.io/blog/component-test-coverage/
+
 1> npm install enzyme enzyme-adapter-react-16 enzyme-to-json
 
 --watchAll=false
