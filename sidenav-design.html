@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Navbar</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  
+</head>
+<body>
+
+<nav>
+
+<div class="logo">
+<p>Thunder</p>
+</div>
+
+<!-- for desktop nav -->
+<ul class="nav-items">
+<li><a>Home</a></li>
+<li><a>About</a></li>
+<li><a>Services</a></li>
+<li><a>Gallery</a></li>
+<li><a>Contact</a></li>
+
+</ul>
+
+<!-- for mobile nav -->
+<div class="sidebar">
+<ul class="mobile-items">
+<li><a>Home</a></li>
+<li><a>About</a></li>
+<li><a>Services</a></li>
+<li><a>Gallery</a></li>
+<li><a>Contact</a></li>
+
+</ul>
+</div>
+
+<div class="menuIcon">
+<i class="fas fa-bars"></i>
+</div>
+</nav>
+
+
+</body>
+</html>
+
+
+// css
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+nav{
+	
+	height:12vh;
+	background:black;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	
+}
+
+
+nav .logo p{
+	color: whitesmoke;
+  text-decoration: none;
+  font-size: 2.3rem;
+  display: flex;
+  align-items: center;
+  width: 9rem;
+  justify-content: space-between;
+}
+
+nav .nav-items {
+  width: 65vw;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 2rem;
+}
+
+nav .nav-item {
+  list-style: none;
+  margin-left: 2rem;
+}
+
+nav .nav-items li a {
+   text-decoration: none;
+  color: whitesmoke;
+  font-size: 1.2rem;
+  padding: 6px 16px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.2s all ease-out;
+}
+
+
+nav .nav-items li a:hover {
+  background: tomato;
+}
+
+nav .menuIcon{
+	display:none;
+	
+}
+
+nav .menuIcon .fa-bars
+{
+	color:#fff;
+	font-size:24px;
+}
+
+.sidebar .mobile-items {
+ display:none;
+  
+}
+
+
+
+@media screen and (max-width:960px){
+	
+	nav .logo p{
+		margin-left:20px;
+	}
+	
+	nav .menuIcon .fa-bars
+{
+	margin-right:20px;
+}
+	
+nav .menuIcon{
+	display:flex;
+	justify-content:flex-end;
+	align-items:center;
+}
+
+nav .nav-items li a {
+   display: none;
+  
+}
+
+.sidebar {
+  width: 16rem;
+  background: #1b1919;
+  height: 88vh;
+  position: absolute;
+  top: 12vh;
+  left: 0;
+  transition: 0.3s all ease-in-out;
+}
+
+.sidebar .mobile-items {
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  transition: 0.2s all ease-out;
+  
+}
+
+.mobile-items li a {
+  text-decoration: none;
+  color: whitesmoke;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s all ease-out;
+  margin-top: 23px;
+}
+
+
+
+
+}
+
+
+
+
+
+
