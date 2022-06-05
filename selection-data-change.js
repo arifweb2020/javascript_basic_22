@@ -53,3 +53,64 @@ export default function App() {
     </div>
   );
 }
+       
+       
+       // API CALL for selection data
+       
+       
+       
+
+
+const [data,setData] = useState([]);
+const [singledata,setSingledata] = useState({});
+
+useEffect(()=>{
+
+const getData = async () =>{
+
+const res = await fetch('https://jsonplaceholder.typicode.com/users')
+const res1 = res1.json()
+setData(res1)
+
+}
+
+})
+
+const handleSub = (e)=>{
+
+//alert (e.target.value)
+
+const res = await fetch('https://jsonplaceholder.typicode.com/users/' + e.target.value)
+const res1 = res1.json()
+setSingleData(res1)
+
+}
+
+
+
+function Selction(props) {
+
+  return (
+  <>
+  <select onChange={handleSub}>
+  <option value="0">--select this --</option>
+  data.map((user,i)=>{
+  <option value={user.id} key={i.id}>user.name</option>
+  })
+  
+  </select>
+  
+  <h1>Single user data</h1>
+  
+  
+  <p>{singledata.username}</p>
+  <p>{singledata.email}</p>
+  
+  </>
+  
+  )
+  }
+  
+  export default Selction
+       
+       
