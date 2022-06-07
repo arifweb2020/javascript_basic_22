@@ -5,3 +5,5 @@ moment(LoanDate).format(
 moment(LoanDate).format(
             "DD/MM/YYYY"
           )
+// invalid date solution
+ {moment(date,"Do MMM, YYYY").format("Do MMM, YYYY")}
