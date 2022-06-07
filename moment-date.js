@@ -6,4 +6,7 @@ moment(LoanDate).format(
             "DD/MM/YYYY"
           )
 // invalid date solution
- {moment(date,"Do MMM, YYYY").format("Do MMM, YYYY")}
+
+convert this date 23/03/2009 to 23rd Mar, 2009
+
+ {moment(date,"Do/MM/YYYY").format("Do MMM, YYYY")}
