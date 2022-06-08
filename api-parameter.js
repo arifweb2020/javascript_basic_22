@@ -75,3 +75,27 @@
             }
 
 asyncPostCall()
+    
+    
+    
+    API POST method
+    
+    
+    export const LoginAsync = createAsyncThunk(
+  'login/loginCred',
+  async (args) => {
+    const { dob, mobNum } = args;
+    return fetch('/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        DOB: dob,
+        mobileNo: mobNum,
+      }),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        return res.data
+      })
+  },
+)
