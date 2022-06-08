@@ -64,17 +64,18 @@ export default function App() {
 const [data,setData] = useState([]);
 const [singledata,setSingledata] = useState({});
 
-useEffect(()=>{
+React.useEffect(()=>{
 
-const getData = async () =>{
-
-const res = await fetch('https://jsonplaceholder.typicode.com/users')
-const res1 = res1.json()
-setData(res1)
-
-}
-
-})
+    const getData = async () =>{
+    
+    const res = await fetch('https://jsonplaceholder.typicode.com/users')
+    const res1 = await res.json()
+    console.log(res1)
+    setData(res1)
+    
+    }
+    getData()
+    },[])
 
 const handleSub = (e)=>{
 
@@ -94,9 +95,10 @@ function Selction(props) {
   <>
   <select onChange={handleSub}>
   <option value="0">--select this --</option>
-  data.map((user,i)=>{
-  <option value={user.id} key={i.id}>user.name</option>
+  {data.map((user,i)=>{
+ return <option value={user.id} key={i.id}>{user.name}</option>
   })
+}
   
   </select>
   
