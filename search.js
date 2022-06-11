@@ -11,10 +11,13 @@ function Search(props) {
         const getData = async () => {
             const res = await fetch("https://jsonplaceholder.typicode.com/albums")
             const res1 = await res.json()
+            
             setData(res1)
         }
-        getData()
-    }, [])
+         if (query.length === 0 || query.length >2){
+            getData()
+        }
+    }, [query])
 
     console.log(query)
     console.log(data.filter((val) => val.title.toLowerCase().includes("quidem")))
