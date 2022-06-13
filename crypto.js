@@ -101,3 +101,71 @@ export const decryption = (plaintext) => {
 
   return decrypted.toString(CryptoJS.enc.Utf8);
 };
+
+
+
+// other method
+
+import CryptoJS from "crypto-js";
+
+const keyValue = "C&F)J@NcRfUjXnjh";
+
+
+/**
+ * This encryption the AES decoded to string
+ * @param {String} plaintext (Required)-String to be decoded
+ * @returns AESencryption string
+ */
+export const encryption = (plaintext) => {
+  const key = CryptoJS.enc.Latin1.parse(keyValue);
+  const encrypted = CryptoJS.AES.encrypt(plaintext, key, {
+    mode: CryptoJS.mode.ECB,
+    padding: CryptoJS.pad.Pkcs7
+
+  });
+
+  const encryptData = encrypted.toString();
+  return encryptData
+
+};
+
+
+
+
+/**
+ * This decryption the AES decoded to string
+ * @param {String} plaintext (Required)-String to be decoded
+ * @returns AES decryption string
+ */
+export const decryption = (plaintext) => {
+  const key = CryptoJS.enc.Latin1.parse(keyValue);
+  var decrypted = CryptoJS.AES.decrypt(plaintext, key, {
+    mode: CryptoJS.mode.ECB,
+    padding: CryptoJS.pad.Pkcs7,
+  });
+  const decryptData = decrypted.toString(CryptoJS.enc.Utf8);
+  return decryptData
+
+
+};
+
+
+/**
+ * This decryption the AES decoded to string
+ * @param {String} plaintext (Required)-String to be decoded
+ * @returns AES decryption string
+ */
+ export const decryptionCBC = (plaintext) => {
+  const key = CryptoJS.enc.Latin1.parse(keyValue);
+  var iv = CryptoJS.enc.Hex.parse("00000000000000000000000000000000");
+  var decrypted = CryptoJS.AES.decrypt(plaintext, key, {
+    iv: iv,
+   // mode: CryptoJS.mode.CBC,
+    padding: CryptoJS.pad.Pkcs7,
+  });
+  const decryptData = decrypted.toString(CryptoJS.enc.Utf8);
+  return decryptData
+
+
+};
+
