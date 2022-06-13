@@ -3,7 +3,7 @@
 import CryptoJS from "crypto-js";
 
 // const keyValue = "3KgT4!Bs4$Ss2Cf2";
-// const ivValue = "4?_!QWQrC6?Mh*-y";
+// const ivValue = "4?_!QWQrC6?Mhkj";
 
 const keyValue = "C&F)J@NcRfUjXn3t";
 const ivValue = "aPdSgVkYp3s6v9nh";
@@ -67,7 +67,7 @@ console.log("dec plaintext " + plaintext)
 import CryptoJS from "crypto-js";
 
 const keyValue = "3KgT4!Bs4$Ss2Cf1";
-const ivValue = "4?_!QWQrC6?Mh*-x";
+const ivValue = "4?_!QWQrC6?Mh*hg";
 
 /**
  * This encryption the AES decoded to string
