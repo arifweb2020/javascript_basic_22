@@ -71,6 +71,51 @@ const object1 = {
 
 console.log(Object.keys(object1));
 // expected output: Array ["a", "b", "c"]
+    
+    const n1 = 1234567890
+
+const n2 =n1.toString()
+
+const length = n2.length
+
+const mns = n2.substring(length-5,length) 
+
+console.log("xxxxx" + mns)
+    
+        const deletePost = (postid)=>{
+        fetch(`/deletepost/${postid}`,{
+            method:"delete",
+            headers:{
+                Authorization:"Bearer "+localStorage.getItem("jwt")
+            }
+        }).then(res=>res.json())
+        .then(result=>{
+            console.log(result)
+            const newData = data.filter(item=>{
+                return item._id !== result._id
+            })
+            setData(newData)
+        })
+    }
+        
+        {
+               data.map(item=>{
+                   return(
+                       <div className="card home-card" key={item._id}>
+                            <h5 style={{padding:"5px"}}><Link to={item.postedBy._id !== state._id?"/profile/"+item.postedBy._id :"/profile"  }>{item.postedBy.name}</Link> {item.postedBy._id == state._id 
+                            && <i className="material-icons" style={{
+                                float:"right"
+                            }} 
+                            onClick={()=>deletePost(item._id)}
+                            >delete</i>
+
+    
+    const removeFavouriteMovie = (movie) => {
+		const newFavouriteList = favourites.filter((favourite) => favourite.id !== movie.id);
+
+		setFavourites(newFavouriteList);
+		saveToLocalStorage(newFavouriteList);
+	};
 </script>
 </body>
 </html>
