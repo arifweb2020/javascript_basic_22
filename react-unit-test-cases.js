@@ -18,6 +18,24 @@ https://medium.com/swlh/react-testing-using-jest-along-with-code-coverage-report
 
 Example : Normal Component
 
+// use this one
+import React from "react";
+import { shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-17-updated';
+import Enzyme from 'enzyme';
+import toJSON from 'enzyme-to-json';
+import ActivitiesListComponent from './ActivitiesListComponent';
+
+Enzyme.configure({ adapter: new Adapter() });
+
+describe('ActivitiesListComponent component test', () => {
+    it('renders component without crashing', () => {
+        const wrapper = shallow(<ActivitiesListComponent paraText="some text" Heading="some text" />);
+        expect(toJSON(wrapper)).toMatchSnapshot();
+        // On the first run of this test, Jest will generate a snapshot file automatically.
+    });
+})
+
 /**
  * Unit test cases for App
  */
