@@ -21,7 +21,7 @@ ENV REACT_APP_NAME=myname
 EXPOSE 3000
 CMD ["npm","start"]
 
-docker run -e CHOKIDAR_USEPOLLING=true -e REACT_APP_NAME=Arif -v %cd%\src:/app/src -d -p 3000:3000 --name web-app my-app
+docker run -it -e CHOKIDAR_USEPOLLING=true -e REACT_APP_NAME=Arif -v %cd%\src:/app/src -d -p 3000:3000 --name web-app my-app
 
 
 2> .dockerignore (file)
@@ -41,12 +41,12 @@ nginx
 2> docker image ls // for image check
 3> docker image rm gfbdfh677 // for delet image 
 4> docker build -t my-app . // for new image
-5> docker run -d -p 3000:3000 --name web-app my-app // for creating container
+5> docker run -it -d -p 3000:3000 --name web-app my-app // for creating container
 6> docker rm web-app -f // to kill container
 7> docker exec -it web-app bash // for interactive mode
-8> docker run -e CHOKIDAR_USEPOLLING=true -v %cd%\src:/app/src -d -p 3000:3000 --name web-app my-app
+8> docker run -it -e CHOKIDAR_USEPOLLING=true -v %cd%\src:/app/src -d -p 3000:3000 --name web-app my-app
 
-docker run -e CHOKIDAR_USEPOLLING=true -v %cd%\src:/app/src -d -p 3000:3000 --name web-app my-app
+docker run -it -e CHOKIDAR_USEPOLLING=true -v %cd%\src:/app/src -d -p 3000:3000 --name web-app my-app
 	
-docker run -e CHOKIDAR_USEPOLLING=true -v D:\React30\react22\src:/app/src -d -p 3000:3000 --name web-app my-app   // use this one
+docker run -it -e CHOKIDAR_USEPOLLING=true -v D:\React30\react22\src:/app/src -d -p 3000:3000 --name web-app my-app   // use this one
 
