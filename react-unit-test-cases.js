@@ -415,3 +415,26 @@ Enzyme.configure({ adapter: new Adapter() });
       expect(wrapper).toMatchSnapshot();
     });
   });
+
+//
+
+import React from "react";
+import { shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-17-updated';
+import Enzyme from 'enzyme';
+import toJSON from 'enzyme-to-json';
+import Dashboard from './Dashboard';
+import { MemoryRouter } from "react-router-dom";
+import store from './../../app/store';
+import { Provider } from 'react-redux';
+
+Enzyme.configure({ adapter: new Adapter() });
+
+describe('Dashboard component test', () => {
+    it('renders component without crashing', () => {
+        const wrapper = shallow(<Provider store={store}>
+            <MemoryRouter><Dashboard /></MemoryRouter>
+        </Provider>);
+        expect(toJSON(wrapper)).toMatchSnapshot();
+    });
+})
