@@ -1,3 +1,22 @@
+1>npm i react-native
+2>npx react-native init AwesomeProject
+3>npx react-native run-android
+
+// chnages in .prettierrc.js file
+module.exports = {  
+  trailingComma: "all",
+  tabWidth: 4,
+  singleQuote: "avoid",
+};
+
+
+
+
+
+
+
+
+
 /* eslint-disable react-native/no-inline-styles */
 /**
  * Sample React Native App
