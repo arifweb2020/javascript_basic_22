@@ -1,0 +1,5 @@
+https://instamobile.io/android-development/generate-react-native-release-build-android/
+
+https://medium.com/geekculture/react-native-generate-apk-debug-and-release-apk-4e9981a2ea51
+
+https://www.youtube.com/watch?v=l3CZmXtEe_Y
