@@ -1,3 +1,5 @@
+npm i react-native-size-matters for resposnive
+
 1>npm i react-native
 2>npx react-native init AwesomeProject
 3>npx react-native run-android
