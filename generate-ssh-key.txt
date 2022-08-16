@@ -1,0 +1,12 @@
+go to gitbash
+
+generate ssh key
+
+ssh-keygen -t rsa -b 4096 -c 'eamil'
+
+after that dont enter pass
+
+check yr ssh key
+1> cd .ssh/
+2> ls -lrt
+3> cat id_rsa.pub
