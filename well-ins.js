@@ -1,6 +1,60 @@
 
 
 
+  const getUTCnow = () => {
+    const endDateLocal = new Date(new Date().toDateString());
+    // endDateLocal.setDate(endDateLocal.getDate());
+    // const endDateUTC = new Date(
+    //   endDateLocal.getUTCFullYear(),
+    //   endDateLocal.getUTCMonth(),
+    //   endDateLocal.getUTCDate(),
+    //   endDateLocal.getUTCHours(),
+    //   endDateLocal.getUTCMinutes(),
+    //   endDateLocal.getUTCSeconds()
+    // );
+    return endDateLocal.getTime();
+  };
+
+  const getUTCStartDate = (startDay) => {
+    var startDateLocal = new Date(new Date().toDateString());
+    startDateLocal.setDate(startDateLocal.getDate() - startDay);
+
+    // const startDateUTC = new Date(
+    //   startDateLocal.getUTCFullYear(),
+    //   startDateLocal.getUTCMonth(),
+    //   startDateLocal.getUTCDate(),
+    //   startDateLocal.getUTCHours(),
+    //   startDateLocal.getUTCMinutes(),
+    //   startDateLocal.getUTCSeconds()
+    // );
+    return startDateLocal.getTime();
+  };
+
+  const date = new Date();
+  const timeOffset = date.getTimezoneOffset();
+
+  useEffect(() => {
+    if (selectedGraphTab === "aa") {
+      dispatch(
+        setGraphDataAsync({
+          StartDatetimeInLong: getUTCStartDate(27), //previously 27
+          EndDatetimeInLong: getUTCnow(),
+          TimeZoneOffset: -1 * timeOffset,
+          PatientID: parseInt(patientId),
+        })
+      );
+    } else {
+      dispatch(
+        setGraphDataAsync({
+          StartDatetimeInLong: getUTCStartDate(13), //previously 13
+          EndDatetimeInLong: getUTCnow(),
+          TimeZoneOffset: -1 * timeOffset,
+          PatientID: parseInt(patientId),
+        })
+      );
+    }
+  }, [dispatch, selectedGraphTab, timeOffset, patientId]);
+
 
 function Arif() {
   const { t } = useTranslation();
