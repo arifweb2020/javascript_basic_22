@@ -1,10 +1,4 @@
-/**
- * This is redux Slice(State) management for User Profile. Please write all the reducers and external
- * Action here.
- * Export Actions and Reducers separately
- *
- * Author : Devendra
- */
+
  import {  createSlice } from "@reduxjs/toolkit";
 
  
