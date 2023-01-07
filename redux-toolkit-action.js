@@ -1,3 +1,8 @@
+APP.js
+
+dispatch(setLoggedIn({ loggedIn: true }));
+
+
 
  import {  createSlice } from "@reduxjs/toolkit";
 
