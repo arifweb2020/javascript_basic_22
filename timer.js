@@ -1,3 +1,7 @@
+https://github.com/codingWithElias/react-stopwatch/blob/master/src/App.js
+https://www.youtube.com/watch?v=HB9rKo3glTU
+https://www.youtube.com/watch?v=a_jESu-puQ8
+
 import "./styles.css";
 import React from "react";
 
