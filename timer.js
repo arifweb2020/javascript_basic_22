@@ -2,6 +2,39 @@ https://github.com/codingWithElias/react-stopwatch/blob/master/src/App.js
 https://www.youtube.com/watch?v=HB9rKo3glTU
 https://www.youtube.com/watch?v=a_jESu-puQ8
 
+// working code
+
+import "./styles.css";
+import { useState, useEffect } from "react";
+
+export default function App() {
+  const [time, setTime] = useState(0);
+  const [startTimer, setStartTimer] = useState(false);
+  const [timer, setTimer] = useState(0);
+
+  useEffect(() => {
+    let timeInterval = null;
+    if (startTimer) {
+      timeInterval = setInterval(() => {
+        setTime((prev) => prev + 1);
+      }, 1000);
+      setTimer(timeInterval);
+    } else {
+      clearInterval(timer);
+    }
+  }, [startTimer]);
+
+  return (
+    <div className="App">
+      <h1>Hello CodeSandbox- {time}</h1>
+      <button onClick={() => setStartTimer(true)}>Start</button>
+      <button onClick={() => setStartTimer(false)}>Stop</button>
+      <button onClick={() => setTime(0)}>Reset</button>
+    </div>
+  );
+}
+
+
 import "./styles.css";
 import React from "react";
 
