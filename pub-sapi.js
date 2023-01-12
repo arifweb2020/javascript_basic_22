@@ -15,6 +15,7 @@ export default function App() {
       setError(false);
     } catch (error) {
       setError(true);
+      setLoading(true);
     }
   };
 
