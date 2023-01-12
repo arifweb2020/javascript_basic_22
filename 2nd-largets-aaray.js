@@ -12,3 +12,16 @@ function getSecondLargest(nums) {
   let result = arr[arr.length - 2] || arr[0];
   return result
 }
+
+const x = [ 56,58, 45, 3, 6, 23, 67, 54, 6, 9]
+
+const p = x.sort((a, b) => { return a - b });
+
+let result = x[x.length - 2] || x[0];
+
+
+const x = [ 56, 45, 3, 6, 23, 67, 54, 6, 9]
+
+const y = x.filter((val,i)=> x[i + 1] !==6 )
+
+output = [56, 45, 3, 6, 67, 54, 6]
