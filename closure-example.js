@@ -32,6 +32,26 @@ let x = sum(2)
 
 console.log(x(4))
 
+// other way also
+
+function sum(a){
+
+   let c = 10;
+   
+   function total(b){
+   console.log(a , c)
+      return a + c + b
+   }
+   return total(20);
+  
+
+}
+
+// we hv to store sum(2) which is outer function in some variable
+let x = sum(2)
+console.log(x)
+
+
 
 function sum(a){
 
