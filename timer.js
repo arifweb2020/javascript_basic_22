@@ -23,13 +23,18 @@ export default function App() {
       clearInterval(timer);
     }
   }, [startTimer]);
+  
+  const resetBtn = ()=>{
+    setStartTimer(false)
+    setTime(0)
+  }
 
   return (
     <div className="App">
       <h1>Hello CodeSandbox- {time}</h1>
       <button onClick={() => setStartTimer(true)}>Start</button>
       <button onClick={() => setStartTimer(false)}>Stop</button>
-      <button onClick={() => setTime(0)}>Reset</button>
+       <button onClick={resetBtn}>Reset</button>
     </div>
   );
 }
