@@ -211,3 +211,100 @@ const [search,setSearch]= useState("")
   );
 }
 export default App;
+
+
+
+// calling search from nav
+
+import React, { useState, useEffect } from 'react';
+import './App.css';
+import Nav from './components/loader/Nav';
+
+function App() {
+
+
+  const [data, setData] = useState([]);
+  const [fdata, setFdata] = useState([])
+  console.log(fdata)
+  const [search, setSearch] = useState("")
+  console.log(search)
+
+
+  useEffect(() => {
+
+    (async () => {
+      const res = await fetch('https://jsonplaceholder.typicode.com/users')
+      const res1 = await res.json();
+      setData(res1)
+      setFdata(res1)
+    })()
+  }, [])
+
+  const searchHandler = (text) => {
+    text();
+    setSearch(text)
+    console.log("text" ,text)
+    
+    if (text !== "") {
+      const filteredData = data.filter((item) => {
+        return Object.values(item).join('').toLowerCase().includes(search.toLowerCase())
+      })
+      setFdata(filteredData)
+    }
+    else {
+      setFdata(data)
+    }
+  }
+
+const inputChn = (e)=>{
+  setSearch(e.target.value)
+}
+
+  return (
+    <div className="App">
+      <Nav value={search} inputChn={inputChn} formSe={searchHandler}/>
+        {/* <input type="text" value={search} onChange={(e) => setSearch(e.target.value)}
+
+        />
+      
+      <button onClick={searchHandler(search)} >search</button> */}
+     
+
+      <br />
+
+      {fdata.map((ele) => {
+        return <>{<h1>{ele.name} - {ele.username}</h1>}</>
+      })
+
+      }
+
+
+    </div>
+  );
+}
+export default App;
+
+Nav.js
+
+import React from 'react';
+
+function Nav({value,inputChn,formSe}) {
+
+    const func = () => {
+        console.log("val " , value)
+        return value
+      };
+
+    return (
+        <>
+            <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
+
+                <input className="form-control mr-sm-2" type="text" value={value} onChange={inputChn} placeholder="Search" />
+                <button className="btn btn-success" type="submit" onClick={()=>formSe(func)}>Search</button>
+
+            </nav>
+        </>
+    );
+}
+
+export default Nav;
