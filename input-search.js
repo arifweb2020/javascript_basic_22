@@ -271,10 +271,13 @@ const inputChn = (e)=>{
      
 
       <br />
-
-      {fdata.map((ele) => {
-        return <>{<h1>{ele.name} - {ele.username}</h1>}</>
-      })
+ {
+        search === "" ? <>{data.map((ele) => {
+          return <h1>{ele.name} - {ele.username}</h1>
+        })}</> :
+          fdata.map((ele) => {
+            return <h1>{ele.name} - {ele.username}</h1>
+          })
 
       }
 
