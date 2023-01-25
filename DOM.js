@@ -145,3 +145,49 @@ button.addEventListener('click', function () {
             displayImages(items);
         });
 });
+
+// queryselectorall color change
+
+<html>
+<body>
+
+<h2 id="myH2">This is an example h2</h2>
+<h2 id="myH2">This is an example h2</h2>
+<h2 id="myH2">This is an example h2</h2>
+
+<br>
+
+
+
+<script>
+
+ let af = document.querySelectorAll("#myH2")
+ af.forEach(function(toChange) {
+  toChange.style.color = "red";
+});
+
+</script>
+
+</body>
+</html>
+
+
+
+<div class="gun">
+  <a href="#">Hello World!</a>
+</div>
+<div class="speed">
+  <a href="#">Hello World #1!</a>
+  <div id="someDiv">
+    <a href="#">Hello World #2!</a>
+  </div>
+</div>
+
+<div class="speed">
+  <a href="#">Hello World #3!</a>
+</div>
+
+var linksToChange = document.querySelectorAll(".speed a")
+linksToChange.forEach(function(toChange) {
+  toChange.style.color = "red";
+});
