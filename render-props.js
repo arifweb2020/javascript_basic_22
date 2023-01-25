@@ -45,3 +45,23 @@ function RenBtn({cnt,inc,dec}) {
 }
 
 export default RenBtn;
+
+
+
+   {/* <RenderProps render={()=> "render props"}/> */}
+            {/* passing as aprops */}
+            <RenderProps render={(param) => param} />
+
+import React from 'react';
+
+function RenderProps(props) {
+    return (
+        <div>
+            {/* {props.render()} */}
+            {/* passing as para */}
+            {props.render("arif")}
+        </div>
+    );
+}
+
+export default RenderProps;
