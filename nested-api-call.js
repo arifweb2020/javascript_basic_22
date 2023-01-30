@@ -69,3 +69,53 @@ function Home(props) {
 }
 
 export default Home;
+
+
+// 2nd way call two api at a time
+
+// api.js
+
+import axios from "axios"
+
+function fetchCar(carId) {
+  return axios
+    .get('http://first-api', {params: {carId}})
+    .then(r => r.data)
+}
+
+function fetchDetails(carName) {
+  return axios
+    .get('http://second-api', {params: {carName}})
+    .then(r => r.data)
+}
+
+async function fetchCarWithDetails(carId) {
+  const car = await fetchCar(carId)
+  const details = await fetchDetails(car.carName)
+  return { car, details }
+}
+
+export { fetchCar, fetchDetails, fetchCarWithDetails }
+
+// MyComponent.js
+
+import { useAsync } from "./hooks"
+import { fetchCarWithDetails } from "./api"
+
+function MyComponent({ carId }) {
+  const {loading, error, result} =
+    useAsync(fetchCarWithDetails, [carId])  // reusable hook
+
+  // loading...
+  if (loading)
+    return <p>Loading...</p>
+
+  // error...
+  if (error)
+    return <p>Error: {error.message}</p>
+
+  // result...
+  return <pre>
+    {JSON.stringify(result, null, 2)}
+  </pre>
+}
