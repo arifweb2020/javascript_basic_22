@@ -1,5 +1,4 @@
 // first scenario
-
 import React, { useState, useEffect } from 'react';
 import './Home.scss';
 
@@ -50,14 +49,16 @@ function Home(props) {
             <div>
                 {error ? "some error" :
                     loading ? "wait " :
-                        <>{data?.slice(0, 2)?.map((ele) => <h1>{ele?.title}</h1>)}</>
+                        data.length === 0 ? "no data found" :
+                            <>{data?.slice(0, 2)?.map((ele) => <h1>{ele?.title}</h1>)}</>
                 }
             </div>
 
             <div>
                 {errors ? "some error" :
                     loading ? "wait " :
-                        <>{user?.products?.slice(0, 5)?.map((ele) => <h1>{ele.title}</h1>)}</>
+                        user?.products?.length === 0 ? "no data found" :
+                            <>{user?.products?.slice(0, 5)?.map((ele) => <h1>{ele.title}</h1>)}</>
                 }
             </div>
 
