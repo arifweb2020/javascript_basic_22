@@ -119,3 +119,123 @@ function MyComponent({ carId }) {
     {JSON.stringify(result, null, 2)}
   </pre>
 }
+
+
+// 3rd way all promise
+
+import React, { useState, useEffect } from 'react';
+import './Home.scss';
+
+
+function Home(props) {
+
+    const [data, setData] = useState([]);
+    const [user, setUser] = useState({});
+    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState(false);
+    const [errors, setErrors] = useState(false);
+
+
+    useEffect(() => {
+
+        Promise.all([fetch('https://fakestoreapi.com/products'), fetch('https://dummyjson.com/products')])
+            .then(([res1, res2]) => {
+                return Promise.all([res1.json(), res2.json()])
+            }).then(([res1, res2]) => {
+                setData(res1)
+                setUser(res2)
+                setLoading(false)
+            }).catch((err) => {
+                setError(true)
+            })
+    }, []);
+
+
+    return (
+        <div className='container home__conatiner'>
+            <div>
+                {error ? "some error" :
+                    loading ? "wait " :
+                        data.length === 0 ? "no data found" :
+                            <>{data?.slice(0, 2)?.map((ele) => <h1>{ele?.title}</h1>)}</>
+                }
+            </div>
+
+            <div>
+                {errors ? "some error" :
+                    loading ? "wait " :
+                        user?.products?.length === 0 ? "no data found" :
+                            <>{user?.products?.slice(0, 5)?.map((ele) => <h1>{ele.title}</h1>)}</>
+                }
+            </div>
+
+
+            {/* {Object?.keys(user?.products)?.length && user?.products?.slice(0,5)?.map((ele) => <h1>{ele.title}</h1>)} */}
+        </div>
+    );
+}
+
+export default Home;
+
+
+// 4th way all promise
+
+import React, { useState, useEffect } from 'react';
+import './Home.scss';
+
+
+function Home(props) {
+
+    const [data, setData] = useState([]);
+    const [user, setUser] = useState({});
+    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState(false);
+    const [errors, setErrors] = useState(false);
+
+    const getData = async () => {
+        const res = await fetch("https://fakestoreapi.com/products");
+        return await res.json();
+    };
+
+    const getuser = async () => {
+        const res = await fetch("https://dummyjson.com/products");
+        return await res.json();
+    };
+
+    useEffect(() => {
+        Promise.all([getData(), getuser()])
+            .then(([res1, res2]) => {
+                setData(res1)
+                setUser(res2)
+                setLoading(false)
+            }).catch((err) => {
+                setError(true)
+            })
+    }, []);
+
+
+    return (
+        <div className='container home__conatiner'>
+            <div>
+                {error ? "some error" :
+                    loading ? "wait " :
+                        data.length === 0 ? "no data found" :
+                            <>{data?.slice(0, 2)?.map((ele) => <h1>{ele?.title}</h1>)}</>
+                }
+            </div>
+
+            <div>
+                {errors ? "some error" :
+                    loading ? "wait " :
+                        user?.products?.length === 0 ? "no data found" :
+                            <>{user?.products?.slice(0, 5)?.map((ele) => <h1>{ele.title}</h1>)}</>
+                }
+            </div>
+
+
+            {/* {Object?.keys(user?.products)?.length && user?.products?.slice(0,5)?.map((ele) => <h1>{ele.title}</h1>)} */}
+        </div>
+    );
+}
+
+export default Home;
