@@ -139,3 +139,132 @@ function Userdelete()
 }
 
 export default Userdelete;
+
+
+// third option
+
+import React, { useEffect, useState } from "react";
+
+export const App = () => {
+  const [selectedConsole, setSelectedConsole] = useState([]);
+  const [console, setConsole] = useState([]);
+
+  const dataList = [
+    {
+      id: "001",
+      name: "Atari",
+      description: "Click here to add to list"
+    },
+    {
+      id: "002",
+      name: "Sega",
+      description: "Click here to add to list"
+    },
+    {
+      id: "003",
+      name: "Nintendo",
+      description: "Click here to add to list"
+    }
+  ];
+
+  useEffect(() => {
+    setConsole(dataList ?? []);
+  }, [setConsole]);
+  return (
+    <div className="">
+      Click on any of the 3 div's within the blue border to add it to the
+      'selected' area. the checkbox needs to be marked with a tick when the div
+      is selected and the tick needs to be removed when the div has been
+      unselected by pressing the 'x'
+      <div className="flex flex-row border-1 border-gray-1 mt-4 h-466 w-553">
+        <div className="h-466 w-303  overflow-auto ">
+          {console &&
+            console.map((item, index) => (
+              <div
+                key={`${""}-${index}`}
+                id={item.id}
+                className="text-sm2 text-blue-1 cursor-pointer border border-blue border-solid border-2 border-blue-600"
+                onClick={() => {
+                  !selectedConsole.includes(item) &&
+                    setSelectedConsole((oldValue) => [...oldValue, item]);
+                  const updatedConsole = console.map((element) => {
+                    if (item.id === element.id) {
+                      element.checked = true;
+                    }
+                    return element;
+                  });
+                  setConsole(updatedConsole);
+                }}
+              >
+                <div className="flex flex-row relative w-60">
+                  <div className="bg-white border-2 rounded border-blue-0 w-4 h-4 flex flex-shrink-0 mt-5 mr-1 focus-within:border-blue-0">
+                    <input
+                      type="checkbox"
+                      checked={item.checked}
+                      className=" absolute verification-checkbox"
+                    />
+                    <svg
+                      className="fill-current hidden w-4 h-4 text-blue-3 pointer-events-none"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M0 11l2-2 5 5L18 3l2 2L7 18z" />
+                    </svg>
+                  </div>
+                  <div className="flex flex-col ml-2">
+                    {item.name}
+                    <div className="">{item.description}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+        </div>
+        <div className="flex flex-col h-300 w-248">
+          <div className="flex row mt-2 w-62 pl-2 border-b border-gray-1 mb-3">
+            <div className="">
+              <span className="text-center inline-block w-3">
+                {selectedConsole.length}
+              </span>
+              <span>selected</span>
+            </div>
+            <div
+              className="pl-10 cursor-pointer"
+              onClick={() => {
+                setSelectedConsole([]);
+              }}
+            >
+              Unselect all
+            </div>
+          </div>
+          {selectedConsole &&
+            selectedConsole.map((format) => (
+              <div
+                className="flex flex-row justify-between text-blue-3 -ml-2 text-sm4 font-semibold rounded-lg px-4 p-0.5 w-248"
+                key={format.id}
+              >
+                <div className="">{format.name}</div>
+                <div
+                  className="ml-3 font-bold cursor-pointer text-blue-3"
+                  onClick={() => {
+                    setSelectedConsole(
+                      selectedConsole.filter((f) => f.name !== format.name)
+                    );
+                    const updatedConsole = console.map((element) => {
+                      if (format.id === element.id) {
+                        element.checked = false;
+                      }
+                      return element;
+                    });
+                    setConsole(updatedConsole);
+                  }}
+                >
+                  X
+                </div>
+              </div>
+            ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+export default App;
+
