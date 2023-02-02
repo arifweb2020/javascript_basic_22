@@ -568,3 +568,87 @@ function App() {
 }
   
 export default App;
+
+// api select name checkbox
+
+import React from 'react';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+
+function Home(props) {
+    const [data, setData] = useState([]);
+    const [checked, setChecked] = useState([]);
+    const [name,setName]= useState({
+        users: [],
+        response: [],
+      })
+
+    useEffect(() => {
+        (async () => {
+            const res = await fetch("https://jsonplaceholder.typicode.com/users");
+            const res1 = await res.json();
+            console.log(res1);
+            setData(res1);
+
+        })();
+    }, []);
+
+
+    const delItems = (id) => {
+        const filterData = data?.filter((val) => val.id !== id)
+        setData(filterData)
+    }
+
+    const checkedBox = (e,index) => {
+        const { value, checked } = e.target;
+        console.log(value);
+
+        const { users } = name;
+        if(checked){
+            setName({
+                users: [...users, value],
+                response: [...users, value],
+              });
+        }
+       
+
+          else {
+            setName({
+              users: users.filter((e) => e !== value),
+              response: users.filter((e) => e !== value),
+            });
+          }
+    }
+
+    return (
+        <div>
+
+
+            {
+                data.map((ele, i) => {
+                    return <div value={ele.id} key={i}>
+                        <div><input type="checkbox"
+                            value={ele.name}
+                            checked={ele.checked}
+                            onChange={(e) => checkedBox(e)}
+                        />
+                            {ele?.name}
+
+                           {checked && <button onClick={() => delItems(ele.id)}>Delete</button>} 
+
+                        </div>
+                    </div>
+                })
+            }
+{name.response}
+
+        </div>
+    );
+}
+
+export default Home;
+
+// how to select multiple items and delete it using react hooks
+
+// https://codesandbox.io/s/checkbox-filter-thursday-forked-3bmhn?file=/src/App.js
