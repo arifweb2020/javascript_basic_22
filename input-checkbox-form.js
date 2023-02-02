@@ -581,9 +581,11 @@ function Home(props) {
     const [checked, setChecked] = useState([]);
     const [name,setName]= useState({
         users: [],
-        response: [],
+       // response: [],
       })
 
+      console.log(name.users)
+      console.log(name.response)
     useEffect(() => {
         (async () => {
             const res = await fetch("https://jsonplaceholder.typicode.com/users");
@@ -608,7 +610,7 @@ function Home(props) {
         if(checked){
             setName({
                 users: [...users, value],
-                response: [...users, value],
+               // response: [...users, value],
               });
         }
        
@@ -616,7 +618,7 @@ function Home(props) {
           else {
             setName({
               users: users.filter((e) => e !== value),
-              response: users.filter((e) => e !== value),
+             // response: users.filter((e) => e !== value),
             });
           }
     }
@@ -630,7 +632,7 @@ function Home(props) {
                     return <div value={ele.id} key={i}>
                         <div><input type="checkbox"
                             value={ele.name}
-                            checked={ele.checked}
+                           // checked={ele.checked}
                             onChange={(e) => checkedBox(e)}
                         />
                             {ele?.name}
@@ -641,7 +643,7 @@ function Home(props) {
                     </div>
                 })
             }
-{name.response}
+{name.users}
 
         </div>
     );
