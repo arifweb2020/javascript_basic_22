@@ -61,3 +61,62 @@ const useDebounce = (value, delay) => {
 
 export default useDebounce;
 export default App;
+
+
+// without debounce
+
+import './App.scss';
+import { Route, Routes } from "react-router-dom";
+import Home from './component/profile/Home';
+import Details from './component/profile/Details';
+import { useEffect, useState } from 'react';
+
+function App() {
+
+  const [search, setSearch] = useState("");
+  const [data, setData] = useState([]);
+
+  const hanndleChange = (e) => {
+    const text = e.target.value
+    setSearch(text)
+  }
+
+  useEffect(() => {
+    if (search) {
+      fetchPokemon(search);
+    } else {
+      console.log('Something else')
+    }
+  }, [search])
+
+  const fetchPokemon = (pokemonName) => {
+    fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
+      .then((res) => res.json())
+      .then((response) => {
+       // console.log('Reponse', response);
+        setData(response)
+      })
+  }
+
+  return (
+    <div className="app-container">
+
+      <input type="text" value={search} onChange={hanndleChange} />
+
+      {/* <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/pagedetails/:id" element={<Details />} />
+      </Routes> */}
+      {data ? (
+        <div>
+          <h1> {data.name}</h1>
+        </div>
+      ) : <h1>No  Data</h1>}
+    </div>
+  );
+}
+
+export default App;
+
+
+
