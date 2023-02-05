@@ -1,0 +1,116 @@
+// when we give em it multply with all parents selector also
+
+<html>
+
+<head>
+<style>
+body{
+font-size: 2em;
+}
+
+.first{
+font-size:2em;
+}
+
+.sec{
+font-size:2em
+}
+
+h1{
+ font-size: 1em;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="first">
+<div class="sec">
+<h1>Test em</h1>
+</div>
+
+</div>
+
+</body>
+</html>
+
+
+// but if we give in px to parent and then apply to child it will take one first parent anscetor
+
+<html>
+
+<head>
+<style>
+body{
+font-size: 10px;
+}
+
+.first{
+font-size:20px;
+}
+
+.sec{
+font-size:30px
+}
+
+h1{
+ font-size: 1em;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="first">
+<div class="sec">
+<h1>Test em</h1>
+</div>
+
+</div>
+
+</body>
+</html>
+
+
+// rem will take only root element 
+
+<html>
+
+<head>
+<style>
+html{
+font-size:40px;
+}
+
+body{
+font-size: 2em;
+}
+
+.first{
+font-size:3em;
+}
+
+.sec{
+font-size:3em
+}
+
+h1{
+ font-size: 1rem;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="first">
+<div class="sec">
+<h1>Test em</h1>
+</div>
+
+</div>
+
+</body>
+</html>
