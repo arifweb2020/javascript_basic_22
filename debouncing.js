@@ -119,4 +119,30 @@ function App() {
 export default App;
 
 
+// normal search on input box
 
+    const [search,setSearch] = useState("")
+    const[sdata,setSdata] = useState([])
+   const handleChange = (e)=>{
+      const{value} = e.target;
+      setSearch(value)
+      fetch(`https://demo.dataverse.org/api/search?q=${value}`).
+      then((res)=>res.json())
+      .then((res)=>{
+        setSdata(res.data.items)
+      })
+    }
+   
+   
+  <input type="text" value={search} onChange={handleChange} />
+
+        {
+            sdata.length > 0 && search.length > 0 ?
+            <>
+            {
+                sdata?.map((ele)=>{
+                    return <p>{ele.name}</p>
+                })
+            }
+            </> : null
+        }
