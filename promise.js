@@ -89,3 +89,34 @@ function otp(){
 reg().then(email).then(otp).catch((err)=>{
     console.log(err)
 })
+
+
+
+// multiple api call at same time
+
+ const [data, setData] = useState([]);
+    const [user, setUser] = useState({});
+    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState(false);
+    const [errors, setErrors] = useState(false);
+
+    const getData = async () => {
+        const res = await fetch("https://fakestoreapi.com/products");
+        return await res.json();
+    };
+
+    const getuser = async () => {
+        const res = await fetch("https://dummyjson.com/products");
+        return await res.json();
+    };
+
+    useEffect(() => {
+        Promise.all([getData(), getuser()])
+            .then(([res1, res2]) => {
+                setData(res1)
+                setUser(res2)
+                setLoading(false)
+            }).catch((err) => {
+                setError(true)
+            })
+    }, []);
