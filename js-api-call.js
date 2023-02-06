@@ -39,6 +39,26 @@ fetch('https://jsonplaceholder.typicode.com/users')
 
   })
   
+    
+  fetch('https://example.com/data')
+  .then(response => response.json())
+  .then(data => {
+    // Show Loader
+    document.getElementById('loader').style.display = 'block';
+
+    // Show Data in UI
+    let output = '';
+    data.forEach(item => {
+      output += `<li>${item}</li>`;
+    });
+
+    document.getElementById('data-list').innerHTML = output;
+
+    // Hide Loader
+    document.getElementById('loader').style.display = 'none';
+
+  })
+  
   */
   
   const getData = async ()=>{
