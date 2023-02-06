@@ -227,3 +227,84 @@ function Userdelete()
 
 export default Userdelete;
 
+// test delet
+
+/**
+ * Entry point of App
+ * Author : Arif
+ */
+import React from 'react';
+import { Provider } from 'react-redux';
+import { store } from './store/store';
+import './App.css';
+import AppRoutes from './routes/AppRoutes';
+import { useState } from 'react';
+import { useEffect } from 'react';
+// https://reqres.in/api/users?page=1 https://github.com/DEVfancybear/react-redux-pagination-server-side/blob/master/src/App.js
+function App() {
+  const [data, setData] = useState([])
+  const [isChecked, setisChecked] = useState([]);
+  console.log(isChecked)
+  useEffect(() => {
+    (async () => {
+      const res = await fetch('https://jsonplaceholder.typicode.com/users')
+      const res1 = await res.json()
+      setData(res1)
+    })()
+  }, [])
+
+  const handlecheckbox = (e) => {
+    const { value, checked } = e.target;
+    console.log(value);
+    if (checked) {
+      setisChecked([...isChecked, value]);
+    } else {
+      setisChecked(isChecked.filter((e) => e !== value));
+    }
+
+  }
+
+  const deleteUsers = () => {
+
+    if (isChecked.length !== 0) {
+      const fd = data.filter((val) => !isChecked.includes(val.name))
+      setData(fd)
+      console.log("dd " , isChecked)
+      setisChecked([])
+      console.log("ddt " , isChecked)
+    } else {
+      alert("please Select at least one check box !");
+    }
+
+  }
+
+  return (
+    <div className="App">
+      <button className="btn btn-danger" onClick={deleteUsers}>Delete</button>
+      {
+        data?.map((ele, i) => {
+          return <div>
+            <h3><input type="checkbox" value={ele.name} checked={ele?.isChecked} onChange={(e) => handlecheckbox(e)} />{ele.name}
+            </h3>
+          </div>
+        })
+      }
+
+
+      {/* <Provider store={store}>
+        <AppRoutes />
+      </Provider> */}
+    </div>
+  );
+}
+
+
+
+export default App;
+
+
+
+
+
+
+
