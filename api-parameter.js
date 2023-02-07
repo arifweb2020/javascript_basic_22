@@ -56,7 +56,9 @@
                 const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
                  method: 'POST',
                  headers: {
-                   'Content-Type': 'application/json'
+                   'Accept': 'application/json',
+                   'Content-Type': 'application/json',
+                   'Authorization': 'Bearer {token}',
                    },
                    body: JSON.stringify({
              // your expected POST request payload goes here
