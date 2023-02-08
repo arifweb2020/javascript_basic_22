@@ -438,3 +438,75 @@ describe('Dashboard component test', () => {
         expect(toJSON(wrapper)).toMatchSnapshot();
     });
 })
+
+// enzyme wid zest chatgpt
+
+
+
+//Here is an example of how to unit test a function in Jest with Enzyme: 
+
+import React from 'react'; 
+import { shallow } from 'enzyme'; 
+import { MyComponent } from './MyComponent'; 
+
+describe('MyComponent', () => { 
+
+    it('should render correctly', () => { 
+        const wrapper = shallow(<MyComponent />); 
+
+        expect(wrapper).toMatchSnapshot();   //This will check if the component renders correctly. 
+    });
+
+    it('should call the function when button is clicked', () => { 
+        const mockFn = jest.fn(); //mockFn will be a mock function that we can use to test if the function is called when the button is clicked.  
+
+        const wrapper = shallow(<MyComponent onClick={mockFn} />); //We pass in our mockFn as a prop to our component.  
+
+        wrapper.find('button').simulate('click'); //We simulate a click on the button element inside our component.  
+
+        expect(mockFn).toHaveBeenCalled(); //Finally, we check if our mockFn has been called.  
+    }); 
+});
+
+// jest test cases 
+
+//Example function to test
+function addTwoNumbers(a, b) {
+  return a + b;
+}
+
+//Unit test for the above function using Jest
+test('addTwoNumbers adds two numbers', () => { 
+  expect(addTwoNumbers(1, 2)).toBe(3); 
+});
+
+
+
+
+// Here is an example of writing a unit test case for a complex function using Jest:
+
+// First, import the function you want to test:
+const complexFunction = require('./complexFunction');
+
+// Then, create a test suite for the function: 
+describe('complexFunction', () => {
+
+  // Next, write your individual test cases: 
+  it('should return the correct result when given valid inputs', () => {
+    const input1 = 'foo';
+    const input2 = 'bar';
+
+    const expectedResult = 'foobar';
+
+    expect(complexFunction(input1, input2)).toEqual(expectedResult);
+  });
+
+  it('should throw an error when given invalid inputs', () => {
+    const input1 = null;
+    const input2 = undefined;
+
+    expect(() => complexFunction(input1, input2)).toThrowError();
+  });
+
+  // Finally, add any additional tests as needed.  
+});
