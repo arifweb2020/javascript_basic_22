@@ -20,3 +20,12 @@ const value = checkPalindrome(string);
 
 // log it's value in the console
 console.log(value);
+
+
+// best way
+
+const isPalindrome = (string) => {
+  const reversedString = string.split('').reverse().join('');
+  return reversedString === string ? "palin" : "not plai"
+};
+
