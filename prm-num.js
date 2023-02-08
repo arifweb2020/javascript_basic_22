@@ -20,6 +20,25 @@ function isPrime(n) {
 }
 console.log(isPrime(3));
 
+// to print all prime number
+
+
+
+const printPrimeNumbers = () => {
+  for (let i = 2; i <= 100; i++) {
+    let isPrime = true;
+    for (let j = 2; j < i; j++) {
+      if (i % j === 0) {
+        isPrime = false;
+        break;
+      }
+    }
+
+    if (isPrime) console.log(i);
+  }
+};
+printPrimeNumbers();
+
 
 // to check odd and even
 
