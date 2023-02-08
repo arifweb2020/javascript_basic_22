@@ -510,3 +510,18 @@ describe('complexFunction', () => {
 
   // Finally, add any additional tests as needed.  
 });
+
+
+// Here is an example of a unit test case for an even number function using Jest: 
+
+const isEven = (num) => {
+  return num % 2 === 0;
+}
+
+test('isEven should return true if the number is even', () => {
+  expect(isEven(2)).toBe(true);
+});
+
+test('isEven should return false if the number is odd', () => {
+  expect(isEven(3)).toBe(false);
+});
