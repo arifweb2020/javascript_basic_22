@@ -120,3 +120,36 @@ reg().then(email).then(otp).catch((err)=>{
                 setError(true)
             })
     }, []);
+
+
+// for handling error in api
+
+
+
+// The following example shows how to handle errors in Promise.all() for a specific API: 
+
+const promise1 = fetch('https://api.example.com/endpoint1');
+const promise2 = fetch('https://api.example.com/endpoint2');
+
+Promise.all([promise1, promise2])
+  .then(([res1, res2]) => {
+
+    // Check if both responses are successful
+    if (res1.ok && res2.ok) {
+
+      // Do something with the responses
+      console.log(res1, res2);
+
+    } else {
+
+      // Handle the error for a specific API response
+      if (!res1.ok) {
+        throw new Error(`Error from endpoint 1: ${res1.status}`);
+      } else if (!res2.ok) {
+        throw new Error(`Error from endpoint 2: ${res2.status}`);
+      }
+
+    }
+
+  })
+  .catch(err => console.error(err));
