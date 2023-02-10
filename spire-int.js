@@ -32,6 +32,7 @@ setName("start")
 
 const stopHandler = ()=>{
   setName("idle")
+  setShow(false)
 }
 
   return (
