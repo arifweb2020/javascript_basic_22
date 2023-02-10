@@ -1,3 +1,21 @@
+// how to genearte apk
+go to android folder app  under main make one folder assets
+   
+   D:\React-Native\chefooz\android\app\src\main\assets
+   
+   step1: go to main folder -  npx react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle
+
+step2: cd android
+
+step3: gradlew assembleRelease
+
+https://instamobile.io/android-development/generate-react-native-release-build-android/
+
+https://medium.com/geekculture/react-native-generate-apk-debug-and-release-apk-4e9981a2ea51
+
+https://www.youtube.com/watch?v=l3CZmXtEe_Y
+
+
 https://www.asapdevelopers.com/build-a-react-native-login-app-with-node-js-backend/
 npm i react-native-size-matters for resposnive
 
