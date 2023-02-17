@@ -159,3 +159,23 @@ console.log(anna)
 
 
 </html>
+
+// prevnt from mutation
+
+let x =[1,2,3]
+let y = [...x]
+y.push(4)
+console.log(x)
+console.log(y)
+
+const m = {
+    name : "simran",
+    age : 21
+}
+
+const n = {...m}
+
+n.school = "DCS"
+
+console.log(n)
+console.log(m)
